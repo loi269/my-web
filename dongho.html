@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        div{
+            margin-top: 200px;
+            color: aqua;
+            font-size: 40px;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="showclock"></div>
+
+   <script>
+    alert("hello");
+    function showTime(){
+        var date = new Date();
+        var gio = date.getHours();
+        var phut = date.getMinutes();
+        var giay = date.getSeconds();
+        var tg = "AM";
+
+        if(gio == 0){
+            gio = 12;
+        }
+        if(gio > 12){
+            tg = "PM"
+        }
+        if(gio > 24){
+            gio = gio - 24;
+        }
+
+
+    gio = (gio < 10)? "0" +gio : gio;
+    phut = (phut < 10)? "0" +phut : phut;
+    giay = (giay < 10)? "0" +giay : giay;
+
+    var time = gio + ":" + phut + ":" + giay + tg;
+
+    document.getElementById('showclock').innerHTML = time;
+
+    setTimeout(showTime , 1000);
+    }
+    showTime();
+   </script> 
+</body>
+</html>
